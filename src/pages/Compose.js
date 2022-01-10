@@ -58,7 +58,8 @@ export default function Compose() {
     const headers = {
       "Content-Type": "application/json",
       "api-key":
-        "aZmqC6K0tCMrImo5pjHZEIhmiyvEyQr8Edoqouies7VDezovhlaFhNZOWaHGIToz"
+        "aZmqC6K0tCMrImo5pjHZEIhmiyvEyQr8Edoqouies7VDezovhlaFhNZOWaHGIToz",
+        "Access-Control-Request-Method":"POST"
     };
     axios
       .post(URL + "/action/insertOne", dataExam, { headers })
