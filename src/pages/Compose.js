@@ -53,13 +53,14 @@ export default function Compose() {
         created: new Date().toLocaleString(),
         modified: new Date().toLocaleString(),
         responses: 0,
-      }
+      },
     };
     const headers = {
       "Content-Type": "application/json",
       "api-key":
         "aZmqC6K0tCMrImo5pjHZEIhmiyvEyQr8Edoqouies7VDezovhlaFhNZOWaHGIToz",
-        "Access-Control-Request-Method":"POST"
+      "Access-Control-Request-Method": "POST",
+      "mode": "no-cors",
     };
     axios
       .post(URL + "/action/insertOne", dataExam, { headers })
