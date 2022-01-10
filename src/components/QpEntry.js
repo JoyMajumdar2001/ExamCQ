@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { Button, Container, FormControl, InputGroup } from "react-bootstrap";
 
 export default function QpEntry({onChangeFn,removeFn,x,i,setAnsOption}) {
