@@ -1,10 +1,11 @@
 import { Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import DataTable from "../components/DataTable";
 import MyNavBar from "../components/MyNavBar";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function createData(name, created, edited, responses, id) {
   return { name, created, edited, responses, id };
@@ -18,7 +19,15 @@ const rows = [
 ];
 
 export default function Dashboard() {
+  const [list, setList] = useState(null)
   let navigate = useNavigate();
+  axios.get('https://examcq-api.onrender.com/getallexam')
+  .then(function (response) {
+    setList(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
   return (
     <div>
       <MyNavBar />
@@ -52,7 +61,7 @@ export default function Dashboard() {
       </Container>
 
       <Container className="mt-4">
-        <DataTable rows={rows} />
+        <DataTable rows={list} />
       </Container>
     </div>
   );

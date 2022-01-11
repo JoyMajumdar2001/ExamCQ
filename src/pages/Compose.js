@@ -10,7 +10,7 @@ import axios from "axios";
 
 export default function Compose() {
   let navigate = useNavigate();
-  const URL = "https://data.mongodb-api.com/app/data-oageq/endpoint/data/beta";
+  const URL = "https://examcq-api.onrender.com";
   const [title, setTitle] = useState("");
 
   const [inputList, setInputList] = useState([
@@ -43,29 +43,19 @@ export default function Compose() {
 
   const handleSubmitExam = () => {
     const dataExam = {
-      dataSource: "waterdrop",
-      database: "examcq",
-      collection: "exams",
-      document: {
-        uid: uniqid(),
-        name: title,
-        data: JSON.stringify(inputList),
-        created: new Date().toLocaleString(),
-        modified: new Date().toLocaleString(),
-        responses: 0,
-      },
+      uid: uniqid(),
+      name: title,
+      data: JSON.stringify(inputList),
+      created: new Date().toLocaleString(),
+      modified: new Date().toLocaleString(),
+      responses: 0
     };
     const headers = {
       "Content-Type": "application/json",
-      "api-key":
-        "aZmqC6K0tCMrImo5pjHZEIhmiyvEyQr8Edoqouies7VDezovhlaFhNZOWaHGIToz",
-      "Access-Control-Request-Method": "POST",
-      "mode": "no-cors",
     };
     axios
-      .post(URL + "/action/insertOne", dataExam, { headers })
+      .post(URL + "/create", dataExam, { headers })
       .then(function (response) {
-        console.log(response);
         navigate("/dashboard");
       })
       .catch(function (error) {

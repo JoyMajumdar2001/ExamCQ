@@ -32,14 +32,14 @@ export default function DataTable({ rows }) {
             <TableBody>
               {rows.map((row) => (
                 <TableRow
-                  key={row.name}
+                  key={row.uid}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     <Button color="secondary">{row.name}</Button>
                   </TableCell>
                   <TableCell align="right">{row.created}</TableCell>
-                  <TableCell align="right">{row.edited}</TableCell>
+                  <TableCell align="right">{row.modified}</TableCell>
                   <TableCell align="right">{row.responses}</TableCell>
                   <TableCell align="right">
                     <IconButton color="primary" aria-label="edit paper">
