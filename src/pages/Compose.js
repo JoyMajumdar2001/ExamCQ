@@ -10,7 +10,6 @@ import axios from "axios";
 
 export default function Compose() {
   let navigate = useNavigate();
-  const URL = "https://data.mongodb-api.com/app/data-oageq/endpoint/data/beta";
   const [title, setTitle] = useState("");
 
   const [inputList, setInputList] = useState([
