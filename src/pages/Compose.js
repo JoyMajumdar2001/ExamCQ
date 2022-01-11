@@ -42,17 +42,12 @@ export default function Compose() {
 
   const handleSubmitExam = () => {
     const dataExam = {
-      dataSource: "waterdrop",
-      database: "examcq",
-      collection: "exams",
-      document: {
-        uid: uniqid(),
+      uid: uniqid(),
         name: title,
         data: JSON.stringify(inputList),
         created: new Date().toLocaleString(),
         modified: new Date().toLocaleString(),
         responses: 0,
-      },
     };
     const headers = {
       "Content-Type": "application/json"
