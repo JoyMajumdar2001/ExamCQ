@@ -7,23 +7,13 @@ import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function createData(name, created, edited, responses, id) {
-  return { name, created, edited, responses, id };
-}
-
-const rows = [
-  createData("Physics", "12-06-21", "10-02-22", "65", "65fgr5"),
-  createData("Chemistry", "12-06-21", "10-02-22", "65", "65fgr5"),
-  createData("Mathematics", "12-06-21", "10-02-22", "65", "65fgr5"),
-  createData("Geo", "12-06-21", "10-02-22", "65", "65fgr5"),
-];
-
 export default function Dashboard() {
   const [list, setList] = useState(null)
   let navigate = useNavigate();
   axios.get('https://examcq-api.onrender.com/getallexam')
   .then(function (response) {
-    setList(response);
+    console.log(response.data);
+    setList(response.data);
   })
   .catch(function (error) {
     console.log(error);
