@@ -56,14 +56,10 @@ export default function Compose() {
       },
     };
     const headers = {
-      "Content-Type": "application/json",
-      "api-key":
-        "aZmqC6K0tCMrImo5pjHZEIhmiyvEyQr8Edoqouies7VDezovhlaFhNZOWaHGIToz",
-      "Access-Control-Request-Method": "POST",
-      "mode": "no-cors",
+      "Content-Type": "application/json"
     };
     axios
-      .post(URL + "/action/insertOne", dataExam, { headers })
+      .post("https://examcq-api.onrender.com/create", dataExam, { headers })
       .then(function (response) {
         console.log(response);
         navigate("/dashboard");
